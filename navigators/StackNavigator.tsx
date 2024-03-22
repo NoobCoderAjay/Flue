@@ -1,6 +1,6 @@
 import { createStackNavigator } from "@react-navigation/stack";
-import React from "react";
-import { Image, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { Image, StyleSheet, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import ActivityScreen from "../BottomScreens/ActivityScreen";
 
@@ -17,8 +17,12 @@ import ActivityFilterScreen from "../BottomScreens/ActivityFilterScreen/Activity
 const Stack = createStackNavigator();
 
 const StackNavigator = () => {
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+
+  const totalScreens = 4;
+
   const handleScreenChange = (index: number) => {
-    // setActiveIndex(index);
+    setActiveIndex(index);
   };
   return (
     <Stack.Navigator initialRouteName="FirstScreen">
@@ -42,6 +46,24 @@ const StackNavigator = () => {
           <FourthScreen {...props} onScreenChange={handleScreenChange} />
         )}
       </Stack.Screen>
+      {/* {activeIndex <= 3 && (
+        <View style={styles.dotContainer}>
+          {[...Array(totalScreens)].map((_, index) => (
+            <View
+              key={index}
+              style={[
+                styles.dot,
+                {
+                  backgroundColor:
+                    index === activeIndex ? "#006271" : "#C4C4C4",
+                  width: index === activeIndex ? 9 : 6,
+                  height: index === activeIndex ? 9 : 6,
+                },
+              ]}
+            />
+          ))}
+        </View>
+      )} */}
       <Stack.Screen
         name="EditButtonScreen"
         component={EditButtonScreen}
@@ -81,6 +103,18 @@ const styles = StyleSheet.create({
     marginRight: 15,
     width: 24,
     height: 24,
+  },
+  dotContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    marginBottom: 20,
+  },
+  dot: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    marginHorizontal: 5,
+    bottom: 60,
   },
 });
 

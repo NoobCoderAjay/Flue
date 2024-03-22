@@ -27,6 +27,11 @@ import {
 import { Caption1 } from "../../common/Text";
 import FilterTag from "../../DashboardFilters/FilterTag";
 import { Size } from "../../theme/Size";
+import {
+  NavigationProp,
+  ParamListBase,
+  useNavigation,
+} from "@react-navigation/native";
 interface Props {
   // filters: DashboardFilters;
   // onJournalEntriesTagPress(value: EventNoteFilter): void;
@@ -113,10 +118,18 @@ const ActivityFilterScreen = (props: Props) => {
       </TouchableOpacity>
     ));
   };
+  const navigation = useNavigation<NavigationProp<ParamListBase>>();
 
+  const handleBackFilter = () => {
+    navigation.navigate("Activity");
+  };
   return (
     <View style={styles.container}>
-      <ActivityHeader title={"Activity Filter"} icon="arrow-left" />
+      <ActivityHeader
+        title={"Activity Filter"}
+        icon="arrow-left"
+        onBackPress={handleBackFilter}
+      />
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
         <View style={styles.contentContainer}>
           <View style={styles.sectionContainerStyle}>

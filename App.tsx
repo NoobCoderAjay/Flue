@@ -14,7 +14,6 @@ export default function App() {
     LibreBaskerville_400Regular,
   });
   const [activeIndex, setActiveIndex] = useState<number>(0);
-  const [drawerOpen, setDrawerOpen] = useState(false);
 
   const totalScreens = 4;
 
@@ -31,7 +30,7 @@ export default function App() {
       <NavigationContainer>
         <DrawerNavigator />
       </NavigationContainer>
-      {/* {activeIndex <= 3 && !drawerOpen && (
+      {/* {activeIndex <= 3 && (
         <View style={styles.dotContainer}>
           {[...Array(totalScreens)].map((_, index) => (
             <View

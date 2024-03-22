@@ -29,6 +29,7 @@ import CrossMark from "../assets/images/CrossMark.png";
 import ActivityHeader from "./ActivityHeader/ActivityHeader";
 import NumberBox from "./ActivityHeader/ActivityBox";
 import {
+  DrawerActions,
   NavigationProp,
   ParamListBase,
   useNavigation,
@@ -155,9 +156,17 @@ const ActivityScreen = (props: Props) => {
   const navigateToFilterScreen = () => {
     props.navigation.navigate("ActivityFilterScreen");
   };
+  const handleOpenDrawer = () => {
+    navigation.dispatch(DrawerActions.openDrawer());
+    console.log("drawer is open");
+  };
   return (
     <View style={styles.container}>
-      <ActivityHeader title="Activity" icon="menu" />
+      <ActivityHeader
+        title="Activity"
+        icon="menu"
+        onPressDrawer={handleOpenDrawer}
+      />
       <View style={styles.contentContainer}>
         <View style={styles.imageContainer}>
           <NumberBox number={23} onPress={() => {}} />

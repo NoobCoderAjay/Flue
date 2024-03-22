@@ -7,17 +7,26 @@ interface ActivityHeaderProps {
   onBackPress?: () => void;
   title: string;
   icon?: string;
+  onPressDrawer?: () => void;
 }
 
 const ActivityHeader: React.FC<ActivityHeaderProps> = ({
   onBackPress,
   title,
   icon,
+  onPressDrawer,
 }) => {
+  const handleIconPress = () => {
+    if (onPressDrawer && icon === "menu") {
+      onPressDrawer();
+    } else if (onBackPress) {
+      onBackPress();
+    }
+  };
   return (
     <View style={styles.container}>
       {icon && (
-        <TouchableOpacity onPress={onBackPress}>
+        <TouchableOpacity onPress={handleIconPress}>
           <Feather
             //@ts-ignore
             name={icon}

@@ -10,7 +10,7 @@ import {
 } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
 //@ts-ignore
-import Finish from "../assets/images/Finish.png";
+import Finishing from "../assets/images/Finishing.png";
 
 type Props = {};
 
@@ -35,7 +35,7 @@ const SuccessScreen = (props: Props) => {
       <PageHeader title="Success" subheading="Your button has been recorded" />
       <View style={styles.content}>
         <View style={styles.imageContainer}>
-          <Image source={Finish} />
+          <Image source={Finishing} />
         </View>
       </View>
       <View style={styles.buttonContainer}>
@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     marginTop: 0,
+    marginBottom: 20,
   },
   buttonContainer: {
     marginBottom: 20,
