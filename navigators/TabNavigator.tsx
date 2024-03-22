@@ -28,6 +28,11 @@ const TabNavigator = (props: Props) => {
         tabBarInactiveTintColor: "#006271",
         tabBarStyle: {
           backgroundColor: "#006271",
+          height: 70,
+          padding: 10,
+          position: "absolute",
+          borderTopRightRadius: 15,
+          borderTopLeftRadius: 15,
         },
       }}
     >
