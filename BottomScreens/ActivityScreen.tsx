@@ -33,7 +33,7 @@ import {
   ParamListBase,
   useNavigation,
 } from "@react-navigation/native";
-import ActivityStackNavigator from "../navigators/ActivityStackNavigator";
+import ActivityStackNavigator from "../navigators/StackNavigator";
 import CustomBox from "./ActivityHeader/CustomBox";
 import RadioButtonGroup, {
   RadioButton,
