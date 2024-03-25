@@ -88,7 +88,7 @@ const EditButtonScreen = (props: Props) => {
           <Button
             title={"Update Button"}
             onPress={handleUpdateButtonPress}
-            backgroundColor="#ECEEEE"
+            backgroundColor="#E0E0E0"
             textColor="#9A96B2"
           />
         </View>

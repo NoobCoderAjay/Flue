@@ -13,13 +13,25 @@ import Button from "../buttons/buttons";
 import ContentButton from "./ToolButton/ContentButton";
 import CustomTextInput from "../TextInput/CustomTextInput";
 import InviteButton from "./ToolButton/InviteButton";
-
+import {
+  NavigationProp,
+  ParamListBase,
+  useNavigation,
+} from "@react-navigation/native";
 type Props = {};
 
 const AdvanceToolScreen = (props: Props) => {
+  const navigation = useNavigation<NavigationProp<ParamListBase>>();
+  const handleBackPress = () => {
+    navigation.navigate("TabNavigator");
+  };
   return (
     <View style={styles.container}>
-      <ToolHeader title="Advanced Tools" icon="arrowleft" />
+      <ToolHeader
+        title="Advanced Tools"
+        icon="arrowleft"
+        onBackPress={handleBackPress}
+      />
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
         <View style={styles.contentContainer}>
           <View style={styles.section}>

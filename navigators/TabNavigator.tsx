@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { LayoutChangeEvent, StyleSheet, Text, View } from "react-native";
+import React, { useEffect, useRef } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../BottomScreens/HomeScreen";
 import { Image } from "react-native";
@@ -17,6 +17,8 @@ import ActivityScreen from "../BottomScreens/ActivityScreen";
 import AddUserScreen from "../BottomScreens/AddUserScreen";
 import BasesScreen from "../BottomScreens/BasesScreen";
 import ProfileScreen from "../BottomScreens/ProfileScreen";
+import TabBarComponent from "../TabAnimation/CustomTabAnimation";
+
 const Tab = createBottomTabNavigator();
 type Props = {};
 
@@ -93,7 +95,7 @@ const TabNavigator = (props: Props) => {
         }}
       />
       <Tab.Screen
-        name="ProfileScreen"
+        name="HouseHold"
         component={ProfileScreen}
         options={{
           headerShown: false,
@@ -112,4 +114,38 @@ const TabNavigator = (props: Props) => {
 
 export default TabNavigator;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  tabBar: {
+    backgroundColor: "white",
+  },
+  activeBackground: {
+    position: "absolute",
+  },
+  tabBarContainer: {
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+  },
+  component: {
+    height: 60,
+    width: 60,
+    marginTop: -5,
+  },
+  componentCircle: {
+    flex: 1,
+    borderRadius: 30,
+    backgroundColor: "white",
+  },
+  iconContainer: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  icon: {
+    height: 36,
+    width: 36,
+  },
+});

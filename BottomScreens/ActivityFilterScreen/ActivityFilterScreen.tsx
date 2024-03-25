@@ -288,6 +288,20 @@ const ActivityFilterScreen = (props: Props) => {
               </>
             )}
           </View>
+          <View style={styles.bottomButtonContainer}>
+            <TouchableOpacity
+              style={[styles.bottomButton, styles.resetButton]}
+              // onPress={handleReset}
+            >
+              <Text style={styles.bottomResetText}>Reset</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.bottomButton, styles.saveButton]}
+              // onPress={handleSave}
+            >
+              <Text style={styles.bottomButtonText}>Save</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </ScrollView>
     </View>
@@ -409,5 +423,40 @@ const styles = StyleSheet.create({
   textInput: {
     flex: 1,
     paddingLeft: 10,
+  },
+  bottomButtonContainer: {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingHorizontal: 20,
+    paddingBottom: 20,
+  },
+  bottomButton: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    height: 50,
+    borderRadius: 8,
+  },
+  resetButton: {
+    backgroundColor: "#F0F0F0",
+    marginRight: 10,
+  },
+  saveButton: {
+    backgroundColor: "#006271",
+    marginLeft: 10,
+  },
+  bottomButtonText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#FFFFFF",
+  },
+  bottomResetText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#006271",
   },
 });
