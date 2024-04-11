@@ -30,19 +30,21 @@ const ThirdScreen = (props: Props) => {
   };
   return (
     <View style={styles.container}>
-      <Text style={[styles.textColor]}>
-        Right sized {"\n"}buttons that{"\n"}work
-      </Text>
-      <View style={styles.imageContainer}>
-        <Image source={machineImage} style={styles.image} />
-      </View>
-      <View style={styles.btns}>
-        <TouchableOpacity onPress={handleBackPress}>
-          <Image source={Back_2} />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={handleBtnPress}>
-          <Image source={Btns} />
-        </TouchableOpacity>
+      <View style={styles.contentContainer}>
+        <Text style={[styles.textColor]}>
+          Right sized {"\n"}buttons that{"\n"}work
+        </Text>
+        <View style={styles.imageContainer}>
+          <Image source={machineImage} style={styles.image} />
+        </View>
+        <View style={styles.btns}>
+          <TouchableOpacity onPress={handleBackPress}>
+            <Image source={Back_2} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleBtnPress}>
+            <Image source={Btns} />
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
@@ -51,6 +53,11 @@ const ThirdScreen = (props: Props) => {
 export default ThirdScreen;
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    backgroundColor: "#FFFFFF",
+    position: "relative",
+  },
+  contentContainer: {
     flex: 1,
     backgroundColor: "#FFE5E5",
     margin: 20,

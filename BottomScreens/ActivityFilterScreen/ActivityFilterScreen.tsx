@@ -314,6 +314,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#E2F3FB",
     flex: 1,
+    position: "relative",
   },
   scrollViewContent: {
     flexGrow: 1,
@@ -438,7 +439,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    height: 50,
+    height: 46,
     borderRadius: 8,
   },
   resetButton: {

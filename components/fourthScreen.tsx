@@ -30,19 +30,21 @@ const FourthScreen = (props: Props) => {
   };
   return (
     <View style={styles.container}>
-      <Text style={[styles.textColor]}>
-        Join our{"\n"}community{"\n"}of button{"\n"}teachers
-      </Text>
-      <View style={styles.imageContainer}>
-        <Image source={cat_Image} style={styles.image} />
-      </View>
-      <View style={styles.btns}>
-        <TouchableOpacity onPress={handleBtnPress}>
-          <Image source={Back_3} />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={handleBtnPressNext}>
-          <Image source={Next} />
-        </TouchableOpacity>
+      <View style={styles.contentContainer}>
+        <Text style={[styles.textColor]}>
+          Join our{"\n"}community{"\n"}of button{"\n"}teachers
+        </Text>
+        <View style={styles.imageContainer}>
+          <Image source={cat_Image} style={styles.image} />
+        </View>
+        <View style={styles.btns}>
+          <TouchableOpacity onPress={handleBtnPress}>
+            <Image source={Back_3} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleBtnPressNext}>
+            <Image source={Next} />
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
@@ -52,6 +54,11 @@ export default FourthScreen;
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    backgroundColor: "#FFFFFF",
+    position: "relative",
+  },
+  contentContainer: {
     flex: 1,
     backgroundColor: "#BAEEFD",
     margin: 20,

@@ -23,6 +23,7 @@ import {
   useNavigation,
 } from "@react-navigation/native";
 import { DrawerActions } from "@react-navigation/native";
+import AvatarTypeSpecific from "../Avatar/AvatarTypeSpecific";
 
 const DrawerContent = () => {
   const [selectedButton, setSelectedButton] = React.useState<string>("");
@@ -48,7 +49,8 @@ const DrawerContent = () => {
         <Image source={CrossMark} />
       </TouchableOpacity>
       <View style={styles.profileContainer}>
-        <Image source={NewAvtar} />
+        {/* <Image source={NewAvtar} /> */}
+        <AvatarTypeSpecific image={undefined} />
         <View style={styles.userInfo}>
           <Text style={styles.userName}>Rameet{"\n"}D'Souza</Text>
           <Text style={styles.userEmail}>rameet@sukratu.com</Text>

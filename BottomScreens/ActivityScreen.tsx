@@ -34,15 +34,12 @@ import {
   ParamListBase,
   useNavigation,
 } from "@react-navigation/native";
-import ActivityStackNavigator from "../navigators/StackNavigator";
 import CustomBox from "./ActivityHeader/CustomBox";
-import RadioButtonGroup, {
-  RadioButton,
-  RadioGroup,
-} from "react-native-radio-buttons-group";
 import SnoozeBottomSheetModal from "../common/BottomSheetModel";
 type Props = {
   navigation: any;
+  number: number;
+  onPress: () => void;
 };
 
 const ActivityScreen = (props: Props) => {
@@ -50,6 +47,7 @@ const ActivityScreen = (props: Props) => {
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
   const navigation = useNavigation<NavigationProp<ParamListBase>>();
   const [showModal, setShowModal] = React.useState(false);
+  const [selectedContainer, setSelectedContainer] = useState<number | null>(1);
   const handleToggleSwitch = () => {
     toggleSwitch();
     if (!isEnabled) {
@@ -68,6 +66,9 @@ const ActivityScreen = (props: Props) => {
     navigation.dispatch(DrawerActions.openDrawer());
     console.log("drawer is open");
   };
+  const handleBoxContainerPress = (containerIndex: number) => {
+    setSelectedContainer(containerIndex);
+  };
   return (
     <View style={styles.container}>
       <ActivityHeader
@@ -77,7 +78,42 @@ const ActivityScreen = (props: Props) => {
       />
       <View style={styles.contentContainer}>
         <View style={styles.imageContainer}>
-          <NumberBox number={23} onPress={() => {}} />
+          <View style={styles.boxContainer}>
+            <TouchableOpacity
+              onPress={() => handleBoxContainerPress(1)}
+              style={[
+                styles.boxStyle,
+                selectedContainer === 1
+                  ? { borderColor: "#006271" }
+                  : { borderColor: "#E4E7EC" },
+              ]}
+            >
+              <View style={styles.numberContainer}>
+                <Text style={styles.numberText}>23</Text>
+                <TouchableOpacity style={styles.buttonStyle} onPress={() => {}}>
+                  <Text style={styles.buttonText}>Event</Text>
+                </TouchableOpacity>
+              </View>
+              <Text style={styles.textStyle}>Communication</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => handleBoxContainerPress(2)}
+              style={[
+                styles.boxStyle,
+                selectedContainer === 2
+                  ? { borderColor: "#006271" }
+                  : { borderColor: "#E4E7EC" },
+              ]}
+            >
+              <View style={styles.numberContainer}>
+                <Text style={styles.numberText}>08</Text>
+                <TouchableOpacity style={styles.buttonStyle} onPress={() => {}}>
+                  <Text style={styles.buttonText}>Event</Text>
+                </TouchableOpacity>
+              </View>
+              <Text style={styles.textStyle}>Modeling</Text>
+            </TouchableOpacity>
+          </View>
         </View>
         <View style={styles.sectionContent}>
           <Text style={styles.sectionTitle}>Snooze notifications</Text>
@@ -185,5 +221,47 @@ const styles = StyleSheet.create({
   },
   cardContainer: {
     marginTop: 25,
+  },
+  ///////////////////
+  boxContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 20,
+  },
+  boxStyle: {
+    borderWidth: 1,
+    borderRadius: 8,
+    padding: 10,
+    width: "45%",
+  },
+  numberText: {
+    fontSize: 32,
+    fontWeight: "bold",
+    marginBottom: 10,
+    marginLeft: 10,
+  },
+  buttonStyle: {
+    backgroundColor: "#FEE0BC",
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    borderRadius: 10,
+    flexDirection: "row",
+    alignItems: "center",
+    alignSelf: "center",
+  },
+  buttonText: {
+    color: "#000000",
+    fontWeight: "bold",
+    padding: 0,
+    margin: 0,
+  },
+  textStyle: {
+    marginLeft: 10,
+    color: "#999999",
+  },
+  numberContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
 });

@@ -1,6 +1,15 @@
-import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  StatusBar,
+} from "react-native";
+import type { StatusBarStyle } from "react-native";
 
+const STYLES = ["default", "dark-content", "light-content"] as const;
+const TRANSITIONS = ["fade", "slide", "none"] as const;
 interface HeaderProps {
   onAddPress: () => void;
   onSkipPress: () => void;
@@ -8,8 +17,21 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ onAddPress, onSkipPress, title }) => {
+  const [hidden, setHidden] = useState(false);
+  const [statusBarStyle, setStatusBarStyle] =
+    useState<StatusBarStyle>("dark-content");
+  const [statusBarTransition, setStatusBarTransition] = useState<
+    "fade" | "slide" | "none"
+  >(TRANSITIONS[0]);
   return (
     <View style={styles.container}>
+      <StatusBar
+        animated={true}
+        backgroundColor="#E2F3FB"
+        barStyle={statusBarStyle}
+        showHideTransition={statusBarTransition}
+        hidden={hidden}
+      />
       <TouchableOpacity onPress={onAddPress} style={styles.button}>
         <Text style={styles.buttonText}>{title}</Text>
       </TouchableOpacity>

@@ -31,19 +31,21 @@ const SecondScreen = (props: Props) => {
 
   return (
     <View style={styles.container}>
-      <Text style={[styles.textColor]}>
-        Button kits{"\n"}for every{"\n"}level of{"\n"}learner
-      </Text>
-      <View style={styles.imageContainer}>
-        <Image source={dogImage} style={styles.image} />
-      </View>
-      <View style={styles.btns}>
-        <TouchableOpacity onPress={handleBackPress}>
-          <Image source={Back} />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={handleBtnPress}>
-          <Image source={Btns} />
-        </TouchableOpacity>
+      <View style={styles.contentContainer}>
+        <Text style={[styles.textColor]}>
+          Button kits{"\n"}for every{"\n"}level of{"\n"}learner
+        </Text>
+        <View style={styles.imageContainer}>
+          <Image source={dogImage} style={styles.image} />
+        </View>
+        <View style={styles.btns}>
+          <TouchableOpacity onPress={handleBackPress}>
+            <Image source={Back} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleBtnPress}>
+            <Image source={Btns} />
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
@@ -53,6 +55,11 @@ export default SecondScreen;
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    backgroundColor: "#FFFFFF",
+    position: "relative",
+  },
+  contentContainer: {
     flex: 1,
     backgroundColor: "#FBECDA",
     margin: 20,

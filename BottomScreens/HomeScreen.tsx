@@ -5,7 +5,7 @@ interface Props {}
 
 const HomeScreen = (props: Props) => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text>HomeScreen</Text>
     </View>
   );
@@ -13,4 +13,11 @@ const HomeScreen = (props: Props) => {
 
 export default HomeScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});

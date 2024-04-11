@@ -8,20 +8,20 @@ interface NumberBoxProps {
 
 const NumberBox: React.FC<NumberBoxProps> = ({ number, onPress }) => {
   return (
-    <View style={styles.container}>
-      <View style={[styles.box, { borderColor: "#006271" }]}>
-        <View style={styles.numberStyle}>
-          <Text style={styles.number}>{number}</Text>
-          <TouchableOpacity style={styles.button} onPress={onPress}>
+    <View style={styles.boxContainer}>
+      <View style={[styles.boxStyle, { borderColor: "#006271" }]}>
+        <View style={styles.numberContainer}>
+          <Text style={styles.numberText}>{number}</Text>
+          <TouchableOpacity style={styles.buttonStyle} onPress={onPress}>
             <Text style={styles.buttonText}>Event</Text>
           </TouchableOpacity>
         </View>
         <Text style={styles.textStyle}>Communication</Text>
       </View>
-      <View style={[styles.box, { borderColor: "#E4E7EC" }]}>
-        <View style={styles.numberStyle}>
-          <Text style={styles.number}>{number}</Text>
-          <TouchableOpacity style={styles.button} onPress={onPress}>
+      <View style={[styles.boxStyle, { borderColor: "#E4E7EC" }]}>
+        <View style={styles.numberContainer}>
+          <Text style={styles.numberText}>{number}</Text>
+          <TouchableOpacity style={styles.buttonStyle} onPress={onPress}>
             <Text style={styles.buttonText}>Event</Text>
           </TouchableOpacity>
         </View>
@@ -32,24 +32,24 @@ const NumberBox: React.FC<NumberBoxProps> = ({ number, onPress }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
+  boxContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     marginTop: 20,
   },
-  box: {
+  boxStyle: {
     borderWidth: 1,
     borderRadius: 8,
     padding: 10,
     width: "45%",
   },
-  number: {
+  numberText: {
     fontSize: 32,
     fontWeight: "bold",
     marginBottom: 10,
     marginLeft: 10,
   },
-  button: {
+  buttonStyle: {
     backgroundColor: "#FEE0BC",
     paddingVertical: 5,
     paddingHorizontal: 10,
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     color: "#999999",
   },
-  numberStyle: {
+  numberContainer: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
